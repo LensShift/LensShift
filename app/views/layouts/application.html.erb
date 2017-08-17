@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <% if notice.present? %>
+      <p class="callout primary" data-closable><%= notice %></p>
+      <% end %>
+
+      <% if alert.present? || flash[:error] %>
+      <div class="callout alert" data-closable><%= alert || flash[:error] %></div>
+      <% end %>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>

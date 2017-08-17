@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Resource Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Source</th>
+      <th>Source url</th>
+      <th>Estimated reading time</th>
+      <th>Short summary</th>
+      <th>Tags</th>
+      <th>Long summary</th>
+      <th>Key takeaways</th>
+      <th>Optional analysis</th>
+      <th>Image</th>
+      <th>Type</th>
+      <th>Lens shifter</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @resource_items.each do |resource_item| %>
+      <tr>
+        <td><%= resource_item.title %></td>
+        <td><%= resource_item.author %></td>
+        <td><%= resource_item.source %></td>
+        <td><%= resource_item.source_url %></td>
+        <td><%= resource_item.estimated_reading_time %></td>
+        <td><%= resource_item.short_summary %></td>
+        <td><%= resource_item.tags %></td>
+        <td><%= resource_item.long_summary %></td>
+        <td><%= resource_item.key_takeaways %></td>
+        <td><%= resource_item.optional_analysis %></td>
+        <td><%= resource_item.image %></td>
+        <td><%= resource_item.type %></td>
+        <td><%= resource_item.lens_shifter %></td>
+        <td><%= link_to 'Show', resource_item %></td>
+        <td><%= link_to 'Edit', edit_resource_item_path(resource_item) %></td>
+        <td><%= link_to 'Destroy', resource_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Resource Item', new_resource_item_path %>

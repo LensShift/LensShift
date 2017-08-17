@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170817195107) do
+ActiveRecord::Schema.define(version: 20170817202733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,4 +47,25 @@ ActiveRecord::Schema.define(version: 20170817195107) do
     t.index ["reset_password_token"], name: "index_lens_shifters_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "resource_items", force: :cascade do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "source"
+    t.string   "source_url"
+    t.integer  "estimated_reading_time"
+    t.text     "short_summary"
+    t.string   "tags"
+    t.text     "long_summary"
+    t.text     "key_takeaways"
+    t.text     "optional_analysis"
+    t.string   "image"
+    t.string   "type"
+    t.string   "slug"
+    t.integer  "lens_shifter_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["lens_shifter_id"], name: "index_resource_items_on_lens_shifter_id", using: :btree
+  end
+
+  add_foreign_key "resource_items", "lens_shifters"
 end

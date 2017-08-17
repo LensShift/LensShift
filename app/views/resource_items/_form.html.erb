@@ -1,0 +1,23 @@
+<%= simple_form_for(@resource_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :author %>
+    <%= f.input :source %>
+    <%= f.input :source_url %>
+    <%= f.input :estimated_reading_time %>
+    <%= f.input :short_summary %>
+    <%= f.input :tags %>
+    <%= f.input :long_summary %>
+    <%= f.input :key_takeaways %>
+    <%= f.input :optional_analysis %>
+    <%= f.input :image %>
+    <%= f.input :type %>
+    <%= f.association :lens_shifter %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

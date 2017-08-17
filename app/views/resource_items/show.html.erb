@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @resource_item.title %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @resource_item.author %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @resource_item.source %>
+</p>
+
+<p>
+  <strong>Source url:</strong>
+  <%= @resource_item.source_url %>
+</p>
+
+<p>
+  <strong>Estimated reading time:</strong>
+  <%= @resource_item.estimated_reading_time %>
+</p>
+
+<p>
+  <strong>Short summary:</strong>
+  <%= @resource_item.short_summary %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @resource_item.tags %>
+</p>
+
+<p>
+  <strong>Long summary:</strong>
+  <%= @resource_item.long_summary %>
+</p>
+
+<p>
+  <strong>Key takeaways:</strong>
+  <%= @resource_item.key_takeaways %>
+</p>
+
+<p>
+  <strong>Optional analysis:</strong>
+  <%= @resource_item.optional_analysis %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @resource_item.image %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @resource_item.type %>
+</p>
+
+<p>
+  <strong>Lens shifter:</strong>
+  <%= @resource_item.lens_shifter %>
+</p>
+
+<%= link_to 'Edit', edit_resource_item_path(@resource_item) %> |
+<%= link_to 'Back', resource_items_path %>
