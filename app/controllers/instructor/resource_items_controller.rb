@@ -1,6 +1,6 @@
 class Instructor::ResourceItemsController < ApplicationController
-	before_action :authenticate_user!
-	before_action :set_resource_item, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_lens_shifter!
+	before_action :set_resource_item, only: [:edit, :update, :destroy]
 
 
 	# GET /resource_items/new
@@ -61,7 +61,7 @@ class Instructor::ResourceItemsController < ApplicationController
 
 	# Never trust parameters from the scary internet, only allow the white list through.
     def resource_item_params
-      params.require(:resource_item).permit(:title, :author, :source, :source_url, :estimated_reading_time, :short_summary, :tags, :long_summary, :key_takeaways, :optional_analysis, :image, :type, :lens_shifter_id, :slug)
+      params.require(:resource_item).permit(:title, :author, :source, :source_url, :estimated_reading_time, :short_summary, :tags, :long_summary, :key_takeaways, :optional_analysis, :image, :type, :lens_shifter_id, :slug, :tag_list)
     end
 
 end

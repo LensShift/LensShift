@@ -1,5 +1,5 @@
 class ResourceItemsController < ApplicationController
-  before_action :set_resource_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_resource_item, only: [:show]
 
   # GET /resource_items
   # GET /resource_items.json
