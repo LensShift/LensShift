@@ -35,3 +35,5 @@ The Mystery of Clichéd African Book Covers: http://publishingperspectives.com/2
 lens_shifter: user)
 
 resource1.tag_list.add("Acacia tree", "African literature", "Arabic literature", "Book cover", "Cover art", "Stereotypical representation", "Sunset", "Veiled women")
+
+resource1.save
