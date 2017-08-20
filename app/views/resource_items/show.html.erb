@@ -1,69 +1,74 @@
-<p id="notice"><%= notice %></p>
+<div class="grid-x grid-padding-x">
+  <div class="small-12 cell show-for-small-only">
+    <h2><%= @resource_item.title %>
+  </div>
+  <div class="small-12 medium-8 large-8 cell">
+    <p>
+    <%= @resource_item.image %>
+    <%= image_tag 'bookCover.png' %>
+    </p>
+    
+    <p>
+      <strong>Long summary:</strong>
+      <%= @resource_item.long_summary %>
+    </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @resource_item.title %>
-</p>
+    <p>
+      <strong>Key takeaways:</strong>
+      <%= @resource_item.key_takeaways %>
+    </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @resource_item.author %>
-</p>
+    <p>
+      <strong>Optional analysis:</strong>
+      <%= @resource_item.optional_analysis %>
+    </p>
+    <p>
+      <strong>Other notes:</strong>
+      <%= @resource_item.other_notes %>
+    </p>
+  </div>
 
-<p>
-  <strong>Source:</strong>
-  <%= @resource_item.source %>
-</p>
+  <div class="small-12 medium-4 large-4 cell">
+    <p>
+      <h2 class="hide-for-small-only"><%= @resource_item.title %></h2>
+    </p>
+    <p>
+      <strong>Short summary:</strong>
+      <%= @resource_item.short_summary %>
+    </p>
 
-<p>
-  <strong>Source url:</strong>
-  <%= @resource_item.source_url %>
-</p>
+    <table class="unstriped">
+      <tr>
+        <td><%= @resource_item.estimated_reading_time %> min read</td>
+        <td><%= @resource_item.published_at %></td>
+      </tr>
+      <tr>
+        <td><%= @resource_item.resource_type %></td>
+        <td></td>
+      </tr>
+    </table>
 
-<p>
-  <strong>Estimated reading time:</strong>
-  <%= @resource_item.estimated_reading_time %>
-</p>
+    <div class="small-12 medium-6 large-6 cell">
+      <strong>Author:</strong>
+      <%= @resource_item.author %>
+    </div>
 
-<p>
-  <strong>Short summary:</strong>
-  <%= @resource_item.short_summary %>
-</p>
 
-<p>
-  <strong>Tags:</strong>
-  <%= @resource_item.tags %>
-</p>
+    <div class="small-12 medium-6 large-6 cell">
+      <strong>Lens shifter:</strong>
+      <%= @resource_item.lens_shifter.first_name %>
+    </div>
 
-<p>
-  <strong>Long summary:</strong>
-  <%= @resource_item.long_summary %>
-</p>
+    <p>
+      <% @resource_item.tag_list.each do |tag| %>
+        <span class="label secondary"><%= tag %></span>
+      <% end %>
+    </p>
 
-<p>
-  <strong>Key takeaways:</strong>
-  <%= @resource_item.key_takeaways %>
-</p>
+  </div>
 
-<p>
-  <strong>Optional analysis:</strong>
-  <%= @resource_item.optional_analysis %>
-</p>
+  <iframe class="small-10 medium-10 large-10 small-offset-1 medium-offset-1 large-offset-1 cell resource-iframe" src="<%= @resource_item.source_url %>"></iframe>
+</div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @resource_item.image %>
-</p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @resource_item.type %>
-</p>
 
-<p>
-  <strong>Lens shifter:</strong>
-  <%= @resource_item.lens_shifter %>
-</p>
-
-<%= link_to 'Edit', edit_resource_item_path(@resource_item) %> |
-<%= link_to 'Back', resource_items_path %>

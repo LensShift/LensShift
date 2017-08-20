@@ -4,23 +4,29 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "LensShift" %></title>
 
     <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
-    <% if notice.present? %>
-      <p class="callout primary" data-closable><%= notice %></p>
+
+  <%= render partial: "layouts/navbar" %>
+  <div class='grid-container' id='main-container'>
+
+      <% if notice.present? %>
+        <p class="callout primary" data-closable><%= notice %></p>
+        <% end %>
+
+        <% if alert.present? || flash[:error] %>
+        <div class="callout alert" data-closable><%= alert || flash[:error] %></div>
       <% end %>
 
-      <% if alert.present? || flash[:error] %>
-      <div class="callout alert" data-closable><%= alert || flash[:error] %></div>
-      <% end %>
+      <%= yield %>
 
-    <%= yield %>
-    <%= javascript_include_tag "application" %>
+  </div>
+
   </body>
 </html>

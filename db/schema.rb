@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170819204254) do
+ActiveRecord::Schema.define(version: 20170819205204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20170819204254) do
     t.text     "key_takeaways"
     t.text     "optional_analysis"
     t.string   "image"
-    t.string   "type"
+    t.string   "resource_type"
     t.string   "slug"
     t.integer  "lens_shifter_id"
     t.datetime "created_at",             null: false

@@ -1,51 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class='grid-x grid-padding-x'>
+  <div class="small-12 medium-12 large-12 cell">
 
-<h1>Resource Items</h1>
+    <div class='hero'>
+      <div class='hero-content'>
+        <h1>Library</h1>
+        <p>Welcome to our pool or resources</p>
+      </div>
+    </div>
+  </div>
+  <div class="small-12 medium-8 large-8 cell library-body">
+    <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+      <% @resource_items.each do |resource_item| %>
+        <div class="cell">
+          <div class='card'>
+            <%= image_tag 'bookCover.png' %>
+            <div class='card-section'>
+              <strong><%= resource_item.title %></strong>
+              <p><%= truncate(resource_item.short_summary, length: 100) {link_to 'open', resource_item_path(resource_item)} %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Source</th>
-      <th>Source url</th>
-      <th>Estimated reading time</th>
-      <th>Short summary</th>
-      <th>Tags</th>
-      <th>Long summary</th>
-      <th>Key takeaways</th>
-      <th>Optional analysis</th>
-      <th>Image</th>
-      <th>Type</th>
-      <th>Lens shifter</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @resource_items.each do |resource_item| %>
-      <tr>
-        <td><%= resource_item.title %></td>
-        <td><%= resource_item.author %></td>
-        <td><%= resource_item.source %></td>
-        <td><%= resource_item.source_url %></td>
-        <td><%= resource_item.estimated_reading_time %></td>
-        <td><%= resource_item.short_summary %></td>
-        <td><%= resource_item.tags %></td>
-        <td><%= resource_item.long_summary %></td>
-        <td><%= resource_item.key_takeaways %></td>
-        <td><%= resource_item.optional_analysis %></td>
-        <td><%= resource_item.image %></td>
-        <td><%= resource_item.type %></td>
-        <td><%= resource_item.lens_shifter %></td>
-        <td><%= link_to 'Show', resource_item %></td>
-        <td><%= link_to 'Edit', edit_resource_item_path(resource_item) %></td>
-        <td><%= link_to 'Destroy', resource_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Resource Item', new_resource_item_path %>
+  <div class="small-12 medium-4 large-4 cell">
+    <h3>Featured Resource</h3>
+  </div>
+</div>
