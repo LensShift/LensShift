@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   resources :resource_items, path: 'library', only: [:index, :show]
   namespace :instructor do
-  	resources :resource_items, only: [:create, :new, :update, :edit]	
+  	resources :resource_items, only: [:create, :new, :update, :edit] do
+  		collection do
+  			get :export
+  			post :import
+  		end
+  	end
   end
 end

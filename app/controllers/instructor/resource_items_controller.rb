@@ -2,6 +2,19 @@ class Instructor::ResourceItemsController < ApplicationController
 	before_action :authenticate_lens_shifter!
 	before_action :set_resource_item, only: [:edit, :update, :destroy]
 
+	def export
+		@resource_items = ResourceItem.all
+
+		respond_to do |format|
+			format.csv { send_data @resource_items.to_csv, filename: "resource-items-#{Date.today}.csv"}
+		end
+	end
+
+	def import
+		ResourceItem.import_json(params[:file])
+		flash[:notice] = 'File has been imported'
+		redirect_to root_path
+	end
 
 	# GET /resource_items/new
 	def new

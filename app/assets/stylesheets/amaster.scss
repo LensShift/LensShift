@@ -1,5 +1,11 @@
+html, body {
+	height: 100%;
+}
+
 #main-container {
+	min-height: 100%;
 	padding-top: 25px;
+	margin-bottom: -250px;
 }
 
 .hero {
@@ -19,4 +25,18 @@ a {
 
 .menu a {
 	color: black !important;
+}
+
+.inline-form {
+	display: inline-block;
+}
+
+.logo {
+	width: 100px;
+	max-height: 100%;
+}
+
+.footer, .push {
+	height: 250px;
+	background-color: #b0b0b0;
 }

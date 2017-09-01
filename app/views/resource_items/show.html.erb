@@ -47,18 +47,15 @@
         <td></td>
       </tr>
     </table>
+    <div class="grid-x">
+      <div class="small-6 medium-6 large-6 cell">
+        <h6>Author:</h6>
+        <%= @resource_item.author %>
+      </div>
 
-    <div class="small-12 medium-6 large-6 cell">
-      <strong>Author:</strong>
-      <%= @resource_item.author %>
+
+
     </div>
-
-
-    <div class="small-12 medium-6 large-6 cell">
-      <strong>Lens shifter:</strong>
-      <%= @resource_item.lens_shifter.first_name %>
-    </div>
-
     <p>
       <% @resource_item.tag_list.each do |tag| %>
         <span class="label secondary"><%= tag %></span>
