@@ -5,7 +5,7 @@ html, body {
 #main-container {
 	min-height: 100%;
 	padding-top: 25px;
-	margin-bottom: -250px;
+	margin-bottom: -200px;
 }
 
 .hero {
@@ -27,6 +27,10 @@ a {
 	color: black !important;
 }
 
+.menu a:hover {
+	color: white !important;
+}
+
 .inline-form {
 	display: inline-block;
 }
@@ -36,7 +40,11 @@ a {
 	max-height: 100%;
 }
 
-.footer, .push {
+.footer {
 	height: 250px;
 	background-color: #b0b0b0;
+}
+
+.push {
+	height: 250px;
 }
