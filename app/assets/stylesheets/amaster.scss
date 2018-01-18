@@ -23,6 +23,10 @@ a {
 	color: #8a8a8a !important;
 }
 
+.menu {
+	align-items: center;
+}
+
 .menu a {
 	color: black !important;
 }
@@ -37,7 +41,6 @@ a {
 
 .logo {
 	width: 100px;
-	max-height: 100%;
 }
 
 .footer {
@@ -47,4 +50,12 @@ a {
 
 .push {
 	height: 250px;
+}
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+
+.no-padding-right {
+	padding-right: 0 !important;
 }

@@ -3,6 +3,7 @@ class ResourceItem < ApplicationRecord
   extend FriendlyId
   friendly_id :title, use: :slugged
   acts_as_taggable_on :tags
+   paginates_per 10
 
   def self.to_csv
 		CSV.generate do |csv|

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170820194226) do
+ActiveRecord::Schema.define(version: 20180116164439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,25 @@ ActiveRecord::Schema.define(version: 20170820194226) do
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
     t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+  end
+
+  create_table "lens_shifter_profiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthdate"
+    t.string   "ethnicity"
+    t.string   "location"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "sector"
+    t.text     "referral"
+    t.text     "comment"
+    t.boolean  "contact_consent"
+    t.integer  "lens_shifter_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["last_name"], name: "index_lens_shifter_profiles_on_last_name", using: :btree
+    t.index ["lens_shifter_id"], name: "index_lens_shifter_profiles_on_lens_shifter_id", using: :btree
   end
 
   create_table "lens_shifters", force: :cascade do |t|
@@ -55,9 +74,7 @@ ActiveRecord::Schema.define(version: 20170820194226) do
     t.integer  "estimated_reading_time"
     t.text     "short_summary"
     t.string   "tags"
-    t.text     "long_summary"
     t.text     "key_takeaways"
-    t.text     "optional_analysis"
     t.string   "image"
     t.string   "resource_type"
     t.string   "slug"
@@ -65,8 +82,9 @@ ActiveRecord::Schema.define(version: 20170820194226) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.datetime "published_at"
-    t.text     "other_notes"
     t.boolean  "feature"
+    t.text     "analysis_content"
+    t.integer  "google_doc_id"
     t.index ["lens_shifter_id"], name: "index_resource_items_on_lens_shifter_id", using: :btree
   end
 

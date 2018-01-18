@@ -1,38 +1,65 @@
 <div class='grid-x grid-padding-x'>
   <div class="small-12 medium-12 large-12 cell">
+    <h1>Library</h1>
+    <p>Welcome to our pool of resources</p>
 
-    <div class='hero'>
-      <div class='hero-content'>
-        <h1>Library</h1>
-        <p>Welcome to our pool of resources</p>
-        <p>Change a testing</p>
-        <%= link_to 'Export to csv', export_instructor_resource_items_path(format: 'csv') %> | 
-        <div class="inline-form">
-          <%= form_tag import_instructor_resource_items_path, multipart: true do %>
-            <%= file_field_tag :file, accept: 'text/json' %>
-            <%= submit_tag "Import Resources", class: 'button small' %>
-          <% end %>
-        </div>
-      </div>
+    <%= link_to 'Export to csv', export_instructor_resource_items_path(format: 'csv') %> | 
+    <div class="inline-form">
+      <%= form_tag import_instructor_resource_items_path, multipart: true do %>
+        <%= file_field_tag :file, accept: 'text/json' %>
+        <%= submit_tag "Import Resources", class: 'button small' %>
+      <% end %>
+    </div>
+    <div>
+      <select id="sort_by" onchange="if(this.value) window.location.href=this.value">
+        <option value=""></option>
+        <option value="<%= resource_items_path(sort_by: 'title') %>">title</option>
+        <option value="<%= resource_items_path(sort_by: 'published_at') %>">published at</option>
+        <option value="<%= resource_items_path(sort_by: 'estimated_reading_time') %>">reading time</option>
+      </select>
+
+
     </div>
   </div>
-  <div class="small-12 medium-8 large-8 cell library-body">
-    <div class="grid-x grid-padding-x small-up-1 medium-up-2 large-up-3">
+
+
+  <div class="small-12 medium-12 large-12 cell">
+    <div class="grid-x grid-padding-x small-up-2 medium-up-3 large-up-4">
       <% @resource_items.each do |resource_item| %>
         <div class="cell">
           <div class='card'>
             <%= image_tag 'bookCover.png' %>
             <div class='card-section'>
-              <strong><%= resource_item.title %></strong>
-              <p><%= truncate(resource_item.short_summary, length: 100) {link_to 'open', resource_item_path(resource_item)} %></p>
+              <h6><strong><%= resource_item.title %></strong></h6>
+              <small><%= truncate(resource_item.short_summary, length: 399) {link_to 'open', resource_item_path(resource_item)} %></small>
             </div>
           </div>
         </div>
       <% end %>
     </div>
   </div>
-
-  <div class="small-12 medium-4 large-4 cell">
-    <h3>Featured Resource</h3>
-  </div>
+  <%= paginate @resource_items, class: "pagination"  %>
 </div>
+
+<script>
+  $(document).ready(function() {
+    var getUrlParameter = function getUrlParameter(sParam) {
+        var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+
+            if (sParameterName[0] === sParam) {
+                return sParameterName[1] === undefined ? true : sParameterName[1];
+            }
+        }
+    };
+
+    var sort = getUrlParameter('sort_by');
+    console.log("/library?sort_by="+sort)
+    $("#sort_by").val("/library?sort_by="+sort)
+  })
+</script>
